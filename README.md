@@ -238,7 +238,7 @@ query {
   }
 }
 ```
-### 6. Update author
+### 6.5 Update author
 ```
 mutation{
   updateAuthor(id: "author-3", name: "Robin Sharma"){
@@ -258,7 +258,7 @@ mutation{
   }
 }
 ```
-### 7. Delete author
+### 6.6 Delete author
 ```
 mutation{
   deleteAuthor(id: "author-3"){
@@ -278,7 +278,7 @@ mutation{
   }
 }
 ```
-### 8. View all authors again
+### 6.7 View all authors again
 ```
 query{
   authors{
