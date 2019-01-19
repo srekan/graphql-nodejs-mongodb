@@ -1,5 +1,22 @@
 # graphql-nodejs-mongodb
-Step by step guide to build a graphql-nodejs-mongodb application
+Uploaded the code while learning.
+
+## Step by step guide to build a graphql-nodejs-mongodb application
+I went through the tutorial https://www.howtographql.com/
+Then I wanted try the end-to-end process.
+
+This guide will be useful if you are looking for tried and tested guide to create the end-to-end apart from the tutorial https://www.howtographql.com/.
+
+# Use Case
+I picked up a simple example of creating collections of authors and books.
+- Create functionality using in-memory objects
+- Then replacing the functionality in-memory objects with mongodb collections
+
+* Note: I did not cover the edge cases or error cases such as trying to delete/edit a non existing author
+
+## 0. Pre requisites for learners
+- You should have experience on nodejs
+- You should have completed https://www.howtographql.com/
 
 ## 1. Setting up a node-graphql project
 
@@ -221,7 +238,7 @@ query {
   }
 }
 ```
-#### 6. update author
+### 6. Update author
 ```
 mutation{
   updateAuthor(id: "author-3", name: "Robin Sharma"){
@@ -238,6 +255,49 @@ mutation{
       "id": "author-3",
       "name": "Robin Sharma"
     }
+  }
+}
+```
+### 7. Delete author
+```
+mutation{
+  deleteAuthor(id: "author-3"){
+    id
+    name
+  }
+}
+```
+==> Result
+```
+{
+  "data": {
+    "deleteAuthor": {
+      "id": "author-3",
+      "name": "Robin Sharma"
+    }
+  }
+}
+```
+### 8. View all authors again
+```
+query{
+  authors{
+    name
+  }
+}
+```
+==> Result
+```
+{
+  "data": {
+    "authors": [
+      {
+        "name": "Yuval Noah Harari"
+      },
+      {
+        "name": "Don Norman"
+      }
+    ]
   }
 }
 ```
